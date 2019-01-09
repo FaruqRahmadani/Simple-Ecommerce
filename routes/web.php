@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
+Route::group(['namespace' => 'Auth'], function() {
+  Route::get('login', 'LoginController@showLoginForm')->name('loginForm');
+  Route::post('login', 'LoginController@login')->name('loginSubmit');
+  Route::get('register', 'RegisterController@showRegistrationForm')->name('registerForm');
+  Route::post('register', 'RegisterController@register')->name('registerSubmit');
+  Route::get('logout', 'LoginController@logout')->name('logout');
+});
+
+Route::group(['middleware' => 'AuthMiddleware'], function() {
+  Route::get('/', function () {
     return view('blank');
+  });
+
+  Route::get('/home', 'HomeController@index')->name('home');
 });

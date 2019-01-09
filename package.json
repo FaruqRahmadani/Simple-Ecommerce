@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.5.21"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
         "browser-sync": "^2.26.3",
         "browser-sync-webpack-plugin": "^2.2.2"
     }
