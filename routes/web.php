@@ -11,10 +11,16 @@
 |
 */
 
+Route::group(['namespace' => 'Auth'], function() {
+  Route::get('login', 'LoginController@showLoginForm')->name('loginForm');
+  Route::post('login', 'LoginController@login')->name('loginSubmit');
+  Route::get('register', 'RegisterController@showRegistrationForm')->name('registerForm');
+  Route::post('register', 'RegisterController@register')->name('loginSubmit');
+  Route::get('logout', 'LoginController@logout')->name('logout');
+});
+
 Route::get('/', function () {
     return view('blank');
 });
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

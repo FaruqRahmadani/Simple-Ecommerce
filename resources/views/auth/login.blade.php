@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('header', 'Login')
 @section('content')
-  <form route="" method="post">
+  <form route="{!! route('loginSubmit') !!}" method="post">
     @csrf
     <div class="form-group">
       <div class="input-group with-focus">
@@ -24,6 +24,13 @@
         </div>
       </div>
     </div>
-    <button class="btn btn-block btn-primary mt-3" type="submit">Login</button>
+    <div class="row">
+      <div class="col-lg-6">
+        <button class="btn btn-block btn-success mt-3" type="submit">Login</button>
+      </div>
+      <div class="col-lg-6">
+        <a href="{!! route('registerForm') !!}" class="btn btn-block btn-info mt-3 text-light">Register</a>
+      </div>
+    </div>
   </form>
 @endsection
