@@ -13,6 +13,9 @@
           </span>
         </div>
       </div>
+      @if ($errors->has('email'))
+        <p class="text-danger">{{$errors->first('email')}}</p>
+      @endif
     </div>
     <div class="form-group">
       <div class="input-group with-focus">
@@ -23,6 +26,9 @@
           </span>
         </div>
       </div>
+      @if ($errors->has('password'))
+        <p class="text-danger">{{$errors->first('password')}}</p>
+      @endif
     </div>
     <div class="row text-center">
       <div class="col-lg-4 offset-lg-4">
