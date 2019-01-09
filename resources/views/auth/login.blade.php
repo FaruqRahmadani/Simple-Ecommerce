@@ -24,12 +24,15 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-6">
-        <button class="btn btn-block btn-success mt-3" type="submit">Login</button>
-      </div>
-      <div class="col-lg-6">
-        <a href="{!! route('registerForm') !!}" class="btn btn-block btn-info mt-3 text-light">Register</a>
+    <div class="row text-center">
+      <div class="col-lg-4 offset-lg-4">
+        <span>
+          <button class="btn btn-block btn-success mt-3" type="submit">Login</button>
+        </span>
+        <p class="mt-3">or</p>
+        <span>
+          <a href="{!! route('registerForm') !!}" class="btn btn-block btn-info mt-3 text-light">Register</a>
+        </span>
       </div>
     </div>
   </form>
