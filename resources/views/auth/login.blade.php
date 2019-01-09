@@ -5,8 +5,7 @@
     @csrf
     <div class="form-group">
       <div class="input-group with-focus">
-        <input class="form-control border-right-0" type="email" name="email" placeholder="Email"
-        autocomplete="off" required>
+        <input class="form-control border-right-0" type="email" name="email" placeholder="Email" value="{{old('email')}}" autocomplete="off" required>
         <div class="input-group-append">
           <span class="input-group-text text-muted bg-transparent border-left-0">
             <em class="fa fa-envelope"></em>
