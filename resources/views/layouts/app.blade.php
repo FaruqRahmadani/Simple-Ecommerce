@@ -19,10 +19,7 @@
           <div class="collapse navbar-collapse pull-left" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#">Prepaid Store</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Product Store</a>
+                <a class="nav-link" href="{!! route('orderHistory') !!}">Order History</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{!! route('logout') !!}">Logout</a>

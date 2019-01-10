@@ -33,4 +33,6 @@ Route::group(['middleware' => 'AuthMiddleware'], function() {
     Route::post('', 'ProductController@submit')->name('Submit');
     Route::get('detail/{id}', 'ProductController@detail')->name('Detail');
   });
+
+  Route::get('order', 'OrderController@history')->name('orderHistory');
 });
