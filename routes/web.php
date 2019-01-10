@@ -24,5 +24,6 @@ Route::group(['middleware' => 'AuthMiddleware'], function() {
 
   Route::group(['prefix' => 'prepaid', 'as' => 'prepaid'], function() {
     Route::get('', 'PrepaidController@order')->name('Order');
+    Route::post('', 'PrepaidController@submit')->name('Submit');
   });
 });
