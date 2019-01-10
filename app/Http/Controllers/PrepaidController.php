@@ -7,6 +7,7 @@ use App\Repositories\OrderRepository;
 use Illuminate\Http\Request;
 use Faker\Factory;
 use Validator;
+use Auth;
 
 class PrepaidController extends Controller
 {
@@ -22,6 +23,7 @@ class PrepaidController extends Controller
     $faker = Factory::create();
     $orderData['type'] = 1;
     $orderData['price'] = $request->value + ($request->value*0.05);
+    $orderData['user_id'] = Auth::User()->id;
     do {
       $orderData['number'] = $faker->numerify('##########');
     } while ($order->where('number', $orderData['number'])->get()->count());

@@ -9,6 +9,6 @@
     <p class="card-text"> {{number_format($order->price)}} </p>
 
     <h5>Your Mobile Phone Number {{$order->Prepaid->phone_number}} will be topped up for {{number_format($order->Prepaid->value)}} after you pay</h5>
-    <a href="#" class="btn btn-primary mt-4">Pay Here</a>
+    <a href="{!! route('paymentForm', ['id' => $order->number]) !!}" class="btn btn-primary mt-4">Pay Here</a>
   </div>
 @endsection
