@@ -7,6 +7,7 @@ use App\Repositories\OrderRepository;
 use Illuminate\Http\Request;
 use Faker\Factory;
 use Validator;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -23,6 +24,7 @@ class ProductController extends Controller
     $faker = Factory::create();
     $orderData['type'] = 2;
     $orderData['price'] = $request->price + 10000;
+    $orderData['user_id'] = Auth::User()->id;
     do {
       $orderData['number'] = $faker->numerify('##########');
     } while ($order->where('number', $orderData['number'])->get()->count());
