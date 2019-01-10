@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\PrepaidRepository;
+use App\Repositories\OrderRepository;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use Faker\Factory;
 use Validator;
 
 class PrepaidController extends Controller
@@ -12,11 +15,19 @@ class PrepaidController extends Controller
     return view('prepaid.order');
   }
 
-  public function submit(Request $request){
+  public function submit(Request $request, OrderRepository $order, PrepaidRepository $prepaid){
     Validator::make($request->all(),[
       'phone_number' => ['required', 'numeric', 'digits_between:7,12', 'starts_with:081'],
-      'value' => 'required'
+      'value' => 'required',
     ])->validate();
-    dd($request->all());
+    $faker = Factory::create();
+    $orderData['type'] = 1;
+    $orderData['price'] = $request->value + ($request->value*0.05);
+    do {
+      $orderData['number'] = $faker->numerify('##########');
+    } while ($order->where('number', $orderData['number'])->get()->count());
+    $order = $order->store($orderData);
+    $prepaid->store(array_merge($request->all(), ['order_id' => $order->id]));
+    dd($order, $prepaid);
   }
 }
