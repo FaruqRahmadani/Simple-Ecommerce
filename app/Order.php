@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-  protected $fillable = ['number', 'type', 'price'];
+  protected $fillable = ['number', 'type', 'price', 'user_id', 'status'];
 
   public function Prepaid(){
     return $this->hasOne('App\Prepaid');
