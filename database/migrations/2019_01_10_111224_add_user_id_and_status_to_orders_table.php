@@ -15,7 +15,7 @@ class AddUserIdAndStatusToOrdersTable extends Migration
   {
     Schema::table('orders', function (Blueprint $table) {
       $table->integer('user_id')->after('price');
-      $table->tinyInteger('status')->after('price');
+      $table->tinyInteger('status')->default(0)->after('price');
     });
   }
 
@@ -28,7 +28,7 @@ class AddUserIdAndStatusToOrdersTable extends Migration
   {
     Schema::table('orders', function (Blueprint $table) {
       $table->dropColumn('user_id');
-      $table->dropColumn('status')->default(0);
+      $table->dropColumn('status');
     });
   }
 }
