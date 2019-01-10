@@ -11,4 +11,8 @@ class Order extends Model
   public function Prepaid(){
     return $this->hasOne('App\Prepaid');
   }
+
+  public function Product(){
+    return $this->hasOne('App\Product');
+  }
 }
