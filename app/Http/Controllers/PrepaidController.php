@@ -28,6 +28,11 @@ class PrepaidController extends Controller
     } while ($order->where('number', $orderData['number'])->get()->count());
     $order = $order->store($orderData);
     $prepaid->store(array_merge($request->all(), ['order_id' => $order->id]));
-    dd($order, $prepaid);
+    return redirect()->route('prepaidDetail', ['id' => encrypt($order->id)]);
+  }
+
+  public function detail($id, OrderRepository $order){
+    $order = $order->get($id);
+    return view('prepaid.detail', compact('order'));
   }
 }
