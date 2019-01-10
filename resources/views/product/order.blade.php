@@ -2,7 +2,7 @@
 @section('header', 'Product Order')
 @section('content')
   <div class="card-body">
-    <form action="" method="post">
+    <form action="{!! route('productSubmit') !!}" method="post">
       @csrf
       <div class="form-group row">
         <label class="col-md-2 col-form-label">Product</label>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Repositories\PrepaidRepository;
 use App\Repositories\OrderRepository;
-use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Faker\Factory;
 use Validator;
