@@ -20,9 +20,7 @@ Route::group(['namespace' => 'Auth'], function() {
 });
 
 Route::group(['middleware' => 'AuthMiddleware'], function() {
-  Route::get('/', function () {
-    return view('blank');
-  });
+  Route::get('', 'HomeController@dashboard')->name('dashboard');
 
   Route::get('/home', 'HomeController@index')->name('home');
 });
