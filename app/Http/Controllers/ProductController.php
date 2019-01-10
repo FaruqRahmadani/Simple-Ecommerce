@@ -22,12 +22,17 @@ class ProductController extends Controller
     ])->validate();
     $faker = Factory::create();
     $orderData['type'] = 2;
-    $orderData['price'] = $request->value + 10000;
+    $orderData['price'] = $request->price + 10000;
     do {
       $orderData['number'] = $faker->numerify('##########');
     } while ($order->where('number', $orderData['number'])->get()->count());
     $order = $order->store($orderData);
     $product->store(array_merge($request->all(), ['order_id' => $order->id]));
-    // return redirect()->route('productDetail', ['id' => encrypt($order->id)]);
+    return redirect()->route('productDetail', ['id' => encrypt($order->id)]);
+  }
+
+  public function detail($id, OrderRepository $order){
+    $order = $order->get($id);
+    return view('product.detail', compact('order'));
   }
 }

@@ -31,5 +31,6 @@ Route::group(['middleware' => 'AuthMiddleware'], function() {
   Route::group(['prefix' => 'product', 'as' => 'product'], function() {
     Route::get('', 'ProductController@order')->name('Order');
     Route::post('', 'ProductController@submit')->name('Submit');
+    Route::get('detail/{id}', 'ProductController@detail')->name('Detail');
   });
 });
