@@ -22,5 +22,7 @@ Route::group(['namespace' => 'Auth'], function() {
 Route::group(['middleware' => 'AuthMiddleware'], function() {
   Route::get('', 'HomeController@dashboard')->name('dashboard');
 
-  Route::get('/home', 'HomeController@index')->name('home');
+  Route::group(['prefix' => 'prepaid', 'as' => 'prepaid'], function() {
+    Route::get('', 'PrepaidController@order')->name('Order');
+  });
 });
