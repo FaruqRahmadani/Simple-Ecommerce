@@ -35,4 +35,6 @@ Route::group(['middleware' => 'AuthMiddleware'], function() {
   });
 
   Route::get('order', 'OrderController@history')->name('orderHistory');
+  Route::get('payment/{id?}', 'OrderController@paymentForm')->name('paymentForm');
+  Route::post('payment', 'OrderController@paymentSubmit')->name('paymentSubmit');
 });

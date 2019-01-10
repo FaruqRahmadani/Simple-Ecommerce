@@ -26,13 +26,13 @@
             @else
               <td>
                 @if ($dataOrder->status == 1)
-                  @if ($dataOrder->tipe == 1)
+                  @if ($dataOrder->type == 1)
                     Success
                   @else
-                    Shipping Code : #092381
+                    Shipping Code : {{$dataOrder->Product->shipment_code}}
                   @endif
                 @else
-                  <a href="#" class="btn btn-primary">Pay</a>
+                  <a href="{!! route('paymentForm', ['id' => $dataOrder->number]) !!}" class="btn btn-primary">Pay</a>
                 @endif
               </td>
             @endif
