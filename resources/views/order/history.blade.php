@@ -31,6 +31,8 @@
                   @else
                     Shipping Code : {{$dataOrder->Product->shipment_code}}
                   @endif
+                @elseif ($dataOrder->status == 2)
+                  Fail
                 @else
                   <a href="{!! route('paymentForm', ['id' => $dataOrder->number]) !!}" class="btn btn-primary">Pay</a>
                 @endif
